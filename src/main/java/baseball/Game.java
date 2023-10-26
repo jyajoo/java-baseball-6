@@ -35,7 +35,8 @@ class Game {
             inputNum = gameInput.getIntegerInput(input);
 
             int[] result = gameUtil.calculateResult(computerNum, inputNum);
-            gameOutput.output(result);
+            String output = gameOutput.output(result);
+            gameOutput.printMessage(output);
         }
         handleGameChoice();
     }

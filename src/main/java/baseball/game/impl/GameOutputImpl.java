@@ -18,22 +18,27 @@ public class GameOutputImpl implements GameOutput {
      *
      * @param result [볼, 스트라이크]
      */
-    public void output(int[] result) {
+    public String output(int[] result) {
         int ball = result[0];
         int strike = result[1];
 
+        StringBuilder stringBuilder = new StringBuilder();
+
         if (strike > 0 && ball == 0) {
-            printMessage(STRIKE.getMsg().formatted(strike));
+            stringBuilder.append(STRIKE.getMsg().formatted(strike));
         }
 
         if (strike == 0 && ball > 0) {
-            printMessage(BALL.getMsg().formatted(ball));
+            stringBuilder.append(BALL.getMsg().formatted(ball));
         }
 
         if (strike > 0 && ball > 0) {
-            printMessage(BALL_AND_STRIKE.getMsg().formatted(ball, strike));
+            stringBuilder.append(BALL_AND_STRIKE.getMsg().formatted(ball, strike));
         }
 
-        printMessage(NOTHING.getMsg());
+        if (strike == 0 && ball == 0) {
+            stringBuilder.append(NOTHING.getMsg());
+        }
+        return stringBuilder.toString();
     }
 }
