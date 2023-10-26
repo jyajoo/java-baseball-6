@@ -36,7 +36,7 @@ class Game {
 
             int[] result = gameUtil.calculateResult(computerNum, inputNum);
             String output = gameOutput.output(result);
-            gameOutput.printMessage(output);
+            gameOutput.printlnMessage(output);
         }
         handleGameChoice();
     }
@@ -45,8 +45,8 @@ class Game {
      * 게임 재시작, 종료 여부
      */
     public void handleGameChoice() {
-        gameOutput.printMessage(SUCCESS_MESSAGE.getMsg());
-        gameOutput.printMessage(REPLAY_OR_OVER_MESSAGE.getMsg());
+        gameOutput.printlnMessage(SUCCESS_MESSAGE.getMsg());
+        gameOutput.printlnMessage(REPLAY_OR_OVER_MESSAGE.getMsg());
         String input = gameInput.setInput();
         String choice = gameInput.getReplayOrOverInput(input);
         if (replay(choice)) {

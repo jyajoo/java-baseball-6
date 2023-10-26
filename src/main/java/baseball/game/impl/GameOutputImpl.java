@@ -9,8 +9,12 @@ import baseball.game.GameOutput;
 
 public class GameOutputImpl implements GameOutput {
 
-    public void printMessage(String message) {
+    public void printlnMessage(String message) {
         System.out.println(message);
+    }
+
+    public void printMessage(String message) {
+        System.out.print(message);
     }
 
     /**
