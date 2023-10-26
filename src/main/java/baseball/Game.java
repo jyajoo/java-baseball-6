@@ -24,6 +24,12 @@ class Game {
         this.gameUtil = gameUtil;
     }
 
+    public void start() {
+        do {
+            play();
+        } while (replay(handleGameChoice()));
+    }
+
     public void play() {
         List<Integer> computerNum = gameUtil.setComputerNum();
         List<Integer> inputNum = new ArrayList<>();
@@ -38,20 +44,16 @@ class Game {
             String output = gameOutput.output(result);
             gameOutput.printlnMessage(output);
         }
-        handleGameChoice();
     }
 
     /**
      * 게임 재시작, 종료 여부
      */
-    public void handleGameChoice() {
+    public String handleGameChoice() {
         gameOutput.printlnMessage(SUCCESS_MESSAGE.getMsg());
         gameOutput.printlnMessage(REPLAY_OR_OVER_MESSAGE.getMsg());
         String input = gameInput.setInput();
-        String choice = gameInput.getReplayOrOverInput(input);
-        if (replay(choice)) {
-            play();
-        }
+        return gameInput.getReplayOrOverInput(input);
     }
 
     /**

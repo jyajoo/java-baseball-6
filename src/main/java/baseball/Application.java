@@ -19,8 +19,7 @@ public class Application {
         GameUtil gameUtil = new GameUtilImpl();
 
         Game game = new Game(gameInput, gameOutput, gameUtil);
-        game.play();
-        
+        game.start();
         gameInput.close();
     }
 }
